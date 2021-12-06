@@ -79,13 +79,11 @@ const ActionGroup = styled.div`
   }
 `;
 
-const DesktopActionGroup = styled.div`
+const DesktopActionGroup = styled(ActionGroup)`
   display: none;
   
   @media ${QUERIES.laptopAndUp} {
     display: flex;
-    gap: 24px;
-    color: ${COLORS.gray[900]};
   }
 `
 
@@ -93,10 +91,9 @@ const DesktopSubscribeButton = styled.div`
   display: none;
 
   @media ${QUERIES.laptopAndUp} {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    display: revert;
+    position: relative;
+    justify-self: end;
   }
 `
 
@@ -108,15 +105,28 @@ const MainHeader = styled(MaxWidthWrapper)`
   margin-bottom: 48px;
 
   @media ${QUERIES.laptopAndUp} {
-    justify-content: space-between;
-    align-items: baseline;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    justify-content: revert;
+    justify-items: start;
+    margin-top: 16px;
+    margin-bottom: 72px;
+  }
+  
+  @media ${QUERIES.tabletAndUp} {
+    margin-top: 48px;
+    margin-bottom: 72px;
   }
 `;
 
 const Link = styled.a`
-  font-weight: ${WEIGHTS.normal};
+  position: absolute;
+  width: 100%;
+  margin-top: 8px;
+  text-align: center;
   font-size: ${14 / 16}rem;
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
   font-style: italic;
   text-decoration: underline;
 `
