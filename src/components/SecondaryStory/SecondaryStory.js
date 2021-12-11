@@ -31,7 +31,6 @@ const Wrapper = styled.article`
     'heading'
     'abstract';
     grid-template-columns: 1fr;
-    gap: 4px 16px;
   }
 `;
 

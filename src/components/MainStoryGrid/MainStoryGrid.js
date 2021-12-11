@@ -22,24 +22,24 @@ const MainStoryGrid = () => {
       </MainStorySection>
 
       <SecondaryStorySection>
-        <SecondaryStoryList>
+        <StoryList>
           {SECONDARY_STORIES.map((story, index) => (
             <VerticalStoryWrapper key={story.id}>
               <SecondaryStory {...story} />
             </VerticalStoryWrapper>
           ))}
-        </SecondaryStoryList>
+        </StoryList>
       </SecondaryStorySection>
 
       <OpinionSection>
         <SectionTitle>Opinion</SectionTitle>
-        <StoryList>
+        <OpinionStoryList>
           {OPINION_STORIES.map((story, index) => (
             <OpinionStoryWrapper key={story.id}>
               <OpinionStory {...story} />
             </OpinionStoryWrapper>
           ))}
-        </StoryList>
+        </OpinionStoryList>
       </OpinionSection>
 
       <AdvertisementSection>
@@ -72,9 +72,8 @@ const Wrapper = styled.div`
     grid-template-areas:
     'main-story secondary-stories opinion-stories'
     'main-story advertisement advertisement';
-    grid-template-columns: 2fr 1.5fr 1fr;
-    grid-template-rows: 1fr 160px;
-    gap: revert;
+    grid-template-columns: 5fr 4fr 3fr;
+    gap: 0px;
   }
 `;
 
@@ -111,32 +110,29 @@ const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
 
   @media ${QUERIES.laptopAndUp} {
-    padding: 16px;
+    padding-right: 16px;
+    margin-right: 16px;
     border-right: 1px solid var(--color-gray-300);
   }
 `;
 
-const SecondaryStoryList = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
 const StoryList = styled.div`
   display: flex;
   flex-direction: column;
+`;
 
+const OpinionStoryList = styled(StoryList)`
   @media ${QUERIES.tabletOnly} {
     flex-direction: row;
-    flex-wrap: wrap;
     gap: 32px;
   }
-`;
+`
 
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
 
   @media ${QUERIES.laptopAndUp} {
-    padding: 16px;
+    margin-top: -8px;
   }
 `;
 
